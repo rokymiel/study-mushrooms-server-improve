@@ -11,22 +11,22 @@ from torchvision import transforms, models
 
 train_dir = 'train'
 val_dir = 'val'
-data_root = '/input'
+data_root = 'input/'
 
-class_names = ['cleaned', 'dirty']
-
-for dir_name in [train_dir, val_dir]:
-    for class_name in class_names:
-        os.makedirs(os.path.join(dir_name, class_name), exist_ok=True)
-
-for class_name in class_names:
-    source_dir = os.path.join(data_root, 'train', class_name)
-    for i, file_name in enumerate(tqdm(os.listdir(source_dir))):
-        if i % 6 != 0:
-            dest_dir = os.path.join(train_dir, class_name)
-        else:
-            dest_dir = os.path.join(val_dir, class_name)
-        shutil.copy(os.path.join(source_dir, file_name), os.path.join(dest_dir, file_name))
+class_names = [dir for dir in os.listdir(data_root + train_dir) if os.path.isdir(os.path.join(data_root + train_dir, dir))]
+#
+# for dir_name in [train_dir, val_dir]:
+#     for class_name in class_names:
+#         os.makedirs(os.path.join(dir_name, class_name), exist_ok=True)
+#
+# for class_name in class_names:
+#     source_dir = os.path.join(data_root, 'train', class_name)
+#     for i, file_name in enumerate(tqdm(os.listdir(source_dir))):
+#         if i % 6 != 0:
+#             dest_dir = os.path.join(train_dir, class_name)
+#         else:
+#             dest_dir = os.path.join(val_dir, class_name)
+#         shutil.copy(os.path.join(source_dir, file_name), os.path.join(dest_dir, file_name))
 
 train_transforms = transforms.Compose([
     transforms.RandomResizedCrop(224),
@@ -105,6 +105,14 @@ def train_model(model, loss, optimizer, scheduler, num_epochs):
     return model
 
 
-model = models.resnext101_32x8d(pretrained=False)
-model.fc = torch.nn.Hardtanh(model.fc.in_features, )
+model = models.resnet50(pretrained=False)
+model.fc = torch.nn.Linear(model.fc.in_features, len(class_names))
 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+model = model.to(device)
+
+loss = torch.nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=3.0e-4)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.1)
+
+train_model(model, loss, optimizer, scheduler, num_epochs=2000)
