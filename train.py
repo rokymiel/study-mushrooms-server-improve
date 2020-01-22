@@ -57,7 +57,6 @@ plt.imshow(X_batch[0].permute(1, 2, 0).numpy() * std + mean);
 
 
 def train_model(model, loss, optimizer, scheduler, num_epochs):
-    device = torch.device('cuda:0')
 
     for epoch in range(num_epochs):
         print('Epoch {}/{}:'.format(epoch, num_epochs - 1), flush=True)
@@ -116,3 +115,5 @@ optimizer = torch.optim.Adam(model.parameters(), lr=3.0e-4)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.1)
 
 train_model(model, loss, optimizer, scheduler, num_epochs=2000)
+
+torch.save(model.state_dict(), 'nn')
