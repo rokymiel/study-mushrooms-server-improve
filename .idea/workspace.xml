@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5d8abc4-f159-4591-af04-7bcda77e42e5" name="Default Changelist" comment="" />
+    <list default="true" id="f9d28e24-e351-4710-8c53-bdae95ab3c11" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/users/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -14,15 +21,21 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1WdOXwy7RovMiNPC6gVKKHpoLcz" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="789458a7-1fdf-4af5-83a1-8c1cd89d2e41" />
+  <component name="ProjectId" id="1abhSydZGaqXPobD4hHrDXJSPh8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Furmach/hw1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -31,21 +44,26 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
-    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Kursach1" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/StudyMushroomsServer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.test">
+    <configuration name="parser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="StudyMushroomsServer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/parser" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/parser/parser.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -54,48 +72,169 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="StudyMushroomsServer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/parser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/parser/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="StudyMushroomsServer" type="Python.DjangoServer" factoryName="Django server">
+      <module name="StudyMushroomsServer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="StudyMushroomsServer.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.train" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.parser" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b5d8abc4-f159-4591-af04-7bcda77e42e5" name="Default Changelist" comment="" />
-      <created>1579476048974</created>
+      <changelist id="f9d28e24-e351-4710-8c53-bdae95ab3c11" name="Default Changelist" comment="" />
+      <created>1587010204780</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1579476048974</updated>
-      <workItem from="1579476051962" duration="2017000" />
+      <updated>1587010204780</updated>
+      <workItem from="1587010214185" duration="8980000" />
+      <workItem from="1587410343466" duration="209000" />
+      <workItem from="1587410694215" duration="35497000" />
+      <workItem from="1587836532066" duration="5723000" />
+      <workItem from="1587901974303" duration="16203000" />
+      <workItem from="1588028486537" duration="19442000" />
+      <workItem from="1588289349145" duration="15000" />
+      <workItem from="1588378761459" duration="14361000" />
+      <workItem from="1588490069661" duration="105000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="324" y="61" key="SettingsEditor" timestamp="1579476840307">
+    <state x="584" y="181" key="#Inspections" timestamp="1587669849914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="324" y="61" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579476840307" />
+    <state x="584" y="181" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1587669849914" />
+    <state x="413" y="164" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588028612868">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="413" y="164" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588028612868" />
+    <state x="689" y="214" key="FileChooserDialogImpl" timestamp="1588289363841">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="214" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588289363841" />
+    <state width="1860" height="271" key="GridCell.Tab.0.bottom" timestamp="1588488473114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588488473114" />
+    <state width="1860" height="271" key="GridCell.Tab.0.center" timestamp="1588488473111">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588488473111" />
+    <state width="1860" height="271" key="GridCell.Tab.0.left" timestamp="1588488473110">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588488473110" />
+    <state width="1860" height="271" key="GridCell.Tab.0.right" timestamp="1588488473112">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588488473112" />
+    <state width="1860" height="316" key="GridCell.Tab.1.bottom" timestamp="1588487053349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="316" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588487053349" />
+    <state width="1860" height="316" key="GridCell.Tab.1.center" timestamp="1588487053349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="316" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588487053349" />
+    <state width="1860" height="316" key="GridCell.Tab.1.left" timestamp="1588487053349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="316" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588487053349" />
+    <state width="1860" height="316" key="GridCell.Tab.1.right" timestamp="1588487053349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="316" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588487053349" />
+    <state width="307" height="636" key="HiddenNamespacesPopup" timestamp="1587475656090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="307" height="636" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1587475656090" />
+    <state x="323" y="61" key="SettingsEditor" timestamp="1588029477388">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="323" y="61" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588029477388" />
+    <state width="960" height="481" key="XDebugger.FullValuePopup" timestamp="1587672652621">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="960" height="481" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1587672652621" />
+    <state x="539" y="5" width="840" height="174" key="search.everywhere.popup" timestamp="1587647215381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="174" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587647215381" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/parser/parser.py</url>
+          <line>149</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/parser/parser.py</url>
+          <line>165</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/StudyMushroomsServer/users/views.py</url>
+          <line>242</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Kursach1$train.coverage" NAME="train Coverage Results" MODIFIED="1579476195559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/StudyMushroomsServer$test.coverage" NAME="test Coverage Results" MODIFIED="1588488069183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parser" />
+    <SUITE FILE_PATH="coverage/StudyMushroomsServer$parser.coverage" NAME="parser Coverage Results" MODIFIED="1588077736959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parser" />
   </component>
 </project>

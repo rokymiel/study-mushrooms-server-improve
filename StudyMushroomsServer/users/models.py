@@ -42,7 +42,6 @@ class MyUserManager(BaseUserManager):
 
         user = self.model(
             username=username,
-            common_name=common_name,
             email=self.normalize_email(email),
             is_staff=False
         )

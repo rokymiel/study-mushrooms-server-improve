@@ -279,6 +279,7 @@ def create_auth(request):
                         status=HTTP_200_OK)
 
     else:
+        print(serialized.errors)
         logger.error("Failed to register. Responding with 400")
         return Response({"error": "Invalid data"}, status=status.HTTP_400_BAD_REQUEST)
 
