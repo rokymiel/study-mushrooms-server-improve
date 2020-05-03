@@ -324,6 +324,28 @@ def add_place(request):
     return Response("Place at " + str(place.location) + " successfully added", status.HTTP_200_OK)
 
 
+class MushroomView(ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Mushroom.objects.all()
+    serializer_class = MushroomSerializer
+    pagination_class = LimitOffsetPagination
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def list(self, request, *args, **kwargs):
+        logger.info("Received request for user's mushroom places")
+        queryset = Mushroom.objects.get()
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        logger.info("Responding normally")
+        return Response(serializer.data)
+
+
 class NoteView(ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = Note.objects.all()
