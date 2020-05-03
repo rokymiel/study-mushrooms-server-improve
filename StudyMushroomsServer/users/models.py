@@ -20,6 +20,7 @@ class Mushroom(models.Model):
     description = models.TextField()
     picture_link = models.CharField(max_length=100)
     type = models.CharField(max_length=10, default='')
+
     class Meta:
         ordering = ['id']
 
@@ -66,6 +67,7 @@ class MyUserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     username = models.CharField(max_length=30, default="", unique=True)
+    notes = models.ManyToManyField(Note, blank=True, default=list, related_name='+')
     email = models.EmailField(unique=True)
     mushroom_places = models.ManyToManyField(MushroomPlace, blank=True, default=list)
     session_key = models.CharField(max_length=200, default="", blank=True, null=True)

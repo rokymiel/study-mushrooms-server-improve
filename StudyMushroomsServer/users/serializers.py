@@ -23,7 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'mushroom_places', 'username', 'email')
+        fields = ('pk', 'mushroom_places', 'username', 'email', 'notes')
 
     def validate(self, data):
         if data['email'] is None or data['username'] is None:
@@ -35,4 +35,4 @@ class UserSerializer(serializers.ModelSerializer):
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ('date', 'user', 'content')
+        fields = ('pk', 'date', 'user', 'content')

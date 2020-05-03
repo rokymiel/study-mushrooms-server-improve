@@ -1,4 +1,6 @@
 from django.contrib.auth import authenticate
+from django.contrib.gis.geos import Point
+from django.core.files.base import ContentFile
 from rest_framework import permissions
 from rest_framework import status
 from rest_framework.authtoken.models import Token
@@ -16,6 +18,7 @@ from PIL import Image
 import torch
 import torchvision
 from GPSPhoto import gpsphoto
+import base64
 
 # Create your views here.
 
@@ -164,7 +167,7 @@ class UserView(ListCreateAPIView):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'mushroom_places')
+        fields = ('id', 'username', 'email', 'mushroom_places', 'notes')
 
 
 class SingleUserView(RetrieveUpdateDestroyAPIView):
@@ -198,39 +201,46 @@ class PlaceView(ListModelMixin, GenericAPIView):
         return Response(serializer.data)
 
     def post(self, request, *args, **kwargs):
-
+        logger.info("Received request to add a mushroom place for the user")
+        user = request.user
         place = MushroomPlace()
-        place.image = request.data.get('image')
-        place.location = request.data.get('location')
+        place.location = Point(request.data.get('location'))
         place.date = now()
+        place.image = ContentFile(base64.b64decode(request.data.get('image')))
+        place.mushroom = Mushroom.objects.get(classname=request.data.get('classname'))
         place.save()
+        user.mushroom_places.add(place)
+        user.save()
+        return Response("Place at " + str(place.location) + " successfully added", status.HTTP_200_OK)
 
-        image = Image.open(request.data.get('image').open())
 
-        preprocess = torchvision.transforms.Compose([
-            torchvision.transforms.Resize(256),
-            torchvision.transforms.CenterCrop(224),
-            torchvision.transforms.ToTensor(),
-            torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-        ])
-        tensor = preprocess(image)
-        batch = tensor.unsqueeze(0)
+@api_view(["GET"])
+def recognize(self, request, *args, **kwargs):
+    image = Image.open(base64.b64decode(request.data.get('image')))
+    preprocess = torchvision.transforms.Compose([
+        torchvision.transforms.Resize(256),
+        torchvision.transforms.CenterCrop(224),
+        torchvision.transforms.ToTensor(),
+        torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
+    tensor = preprocess(image)
+    batch = tensor.unsqueeze(0)
 
-        if torch.cuda.is_available():
-            batch = batch.to('cuda')
-            model.to('cuda')
-        with torch.no_grad():
-            output = model(batch)
+    if torch.cuda.is_available():
+        batch = batch.to('cuda')
+        model.to('cuda')
+    with torch.no_grad():
+        output = model(batch)
 
-        probs = torch.nn.functional.softmax(output[0], dim=0)
-        res = []
-        mushrooms = Mushroom.objects.all()
-        for i in range(len(classnames)):
-            if probs[i].item().__float__() > 0.01:
-                res.append((probs[i].item().__float__(), mushrooms.get(classname=classnames[i])))
-        res = sorted(res)
-        print(res)
-        return Response(data=res, status=status.HTTP_200_OK)
+    probs = torch.nn.functional.softmax(output[0], dim=0)
+    res = []
+    mushrooms = Mushroom.objects.all()
+    for i in range(len(classnames)):
+        if probs[i].item().__float__() > 0.01:
+            res.append((probs[i].item().__float__(), mushrooms.get(classname=classnames[i])))
+    res = sorted(res)
+    print(res)
+    return Response(data=res, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -256,13 +266,18 @@ def create_auth(request):
             logger.error("Invalid new password. Responding with 400")
             return Response({"error": "Invalid password"},
                             status=status.HTTP_400_BAD_REQUEST)
+
         User.objects.create_user(
             email=request.data.get('email'),
             username=request.data.get('username'),
             password=request.data.get('password')
         )
         logger.info("Registered successfully")
-        return Response(status=status.HTTP_201_CREATED)
+        token, _ = Token.objects.get_or_create(user=User.objects.get(username=username))
+        logger.info("Logged in successfully. Returning a token. Responding normally")
+        return Response({'token': token.key},
+                        status=HTTP_200_OK)
+
     else:
         logger.error("Failed to register. Responding with 400")
         return Response({"error": "Invalid data"}, status=status.HTTP_400_BAD_REQUEST)
@@ -297,12 +312,10 @@ def login(request):
 def add_place(request):
     logger.info("Received request to add a mushroom place for the user")
     user = request.user
-    mushroom_places = MushroomPlace.objects.all()
-    user.save()
     place = MushroomPlace()
-    place.id = mushroom_places.all().latest().id + 1
-    place.location = str(request.data.get('location'))
-    place.date = request.data.get('date')
+    place.location = Point(request.data.get('location'))
+    place.date = now()
+    place.image = ContentFile(base64.decodebytes(request.data.get('image')))
     place.mushroom = Mushroom.objects.get(classname=request.data.get('classname'))
     place.save()
     user.mushroom_places.add(place)
