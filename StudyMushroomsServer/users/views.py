@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 from django.contrib.gis.geos import Point
 from django.core.files.base import ContentFile
 from rest_framework import permissions
@@ -177,7 +178,7 @@ class SingleUserView(RetrieveUpdateDestroyAPIView):
     pagination_class = LimitOffsetPagination
 
 
-class PlaceView(ListModelMixin, GenericAPIView):
+class PlaceView(PermissionsMixin, ListModelMixin, GenericAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = PlaceSerializer
     pagination_class = LimitOffsetPagination
