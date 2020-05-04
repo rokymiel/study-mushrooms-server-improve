@@ -26,7 +26,7 @@ SECRET_KEY = 'di=w0msq$xeus9h)_rwbt)_nombdz%gwf1z$^1gg6+tdprg-vl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.223']
+ALLOWED_HOSTS = ['82.146.49.54', 'studymushrooms.ru', '127.0.0.1']
 
 # Application definition
 
@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'gis',
         'USER': 'user001',
         'PASSWORD': '123456789',
-        'HOST': '82.146.49.54',
+        'HOST': 'localhost',
         'PORT': '5432'
     }
 }
