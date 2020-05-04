@@ -178,10 +178,10 @@ class SingleUserView(RetrieveUpdateDestroyAPIView):
 
 
 class PlaceView(ListModelMixin, GenericAPIView):
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = PlaceSerializer
     pagination_class = LimitOffsetPagination
     queryset = MushroomPlace.objects.all()
-    parser_classes = (MultiPartParser,)
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
