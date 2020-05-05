@@ -190,7 +190,7 @@ class PlaceView(PermissionsMixin, ListModelMixin, GenericAPIView):
     def list(self, request, *args, **kwargs):
         logger.info("Received request for user's mushroom places")
         user = request.user
-
+        print(user)
         queryset = user.mushroom_places.all()
         page = self.paginate_queryset(queryset)
         if page is not None:
@@ -215,8 +215,8 @@ class PlaceView(PermissionsMixin, ListModelMixin, GenericAPIView):
         return Response("Place at " + str(place.location) + " successfully added", status.HTTP_200_OK)
 
 
-@api_view(["GET"])
-def recognize(self, request, *args, **kwargs):
+@api_view(["POST"])
+def recognize(request, *args, **kwargs):
     image = Image.open(base64.b64decode(request.data.get('image')))
     preprocess = torchvision.transforms.Compose([
         torchvision.transforms.Resize(256),
@@ -336,7 +336,7 @@ class MushroomView(ListCreateAPIView):
 
     def list(self, request, *args, **kwargs):
         logger.info("Received request for user's mushroom places")
-        queryset = Mushroom.objects.get()
+        queryset = Mushroom.objects.all()
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
