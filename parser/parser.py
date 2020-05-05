@@ -155,6 +155,7 @@ for url, type in base_urls:
         for item in links:
             print(item)
             try:
+               # item = "https://wikigrib.ru/ejovik-belyj/"
                 soup = BeautifulSoup(requests.get(item, headers={
                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:45.0) Gecko/20100101 Firefox/45.0'
                 }).content, 'html.parser')
@@ -174,8 +175,16 @@ for url, type in base_urls:
                 model.name = name
                 model.classname = classname
                 k = filter(None.__ne__, [el.string for el in article.findAll('p')])
-                model.picture_link = article.find('img')['src']
-                description = '\n'.join(k)
+                try:
+                    model.picture_link = soup.find('div', {'class': 'google_imgs'}).find('href')
+                except:
+                    model.picture_link = article.find('img')['src']
+                if model.picture_link is None:
+                    model.picture_link = article.find('img')['src']
+                try:
+                    description = article.text
+                except:
+                    description = "\n".join(k)
                 model.description = description
                 model.type = type
                 model.save()

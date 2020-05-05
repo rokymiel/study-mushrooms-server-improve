@@ -336,7 +336,7 @@ class MushroomView(ListCreateAPIView):
 
     def list(self, request, *args, **kwargs):
         logger.info("Received request for user's mushroom places")
-        queryset = Mushroom.objects.get()
+        queryset = Mushroom.objects.all()
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
