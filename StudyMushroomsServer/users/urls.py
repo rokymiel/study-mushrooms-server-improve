@@ -8,6 +8,6 @@ urlpatterns = [
     path('user_info', UserView.as_view()),
     path('places', PlaceView.as_view()),
     path('notes', NoteView.as_view()),
-    path('recognize', recognize),
+    path('recognize', RecognizeView.as_view()),
     path('mushrooms', MushroomView.as_view())
 ]

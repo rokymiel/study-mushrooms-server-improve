@@ -9,6 +9,7 @@ class Note(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
     date = models.DateTimeField()
     content = models.TextField()
+    title = models.TextField(default='')
 
     class Meta:
         ordering = ['date']
@@ -25,11 +26,16 @@ class Mushroom(models.Model):
         ordering = ['id']
 
 
-class MushroomPlace(models.Model):
+class RecognizeModel(models.Model):
     mushroom = models.ForeignKey('Mushroom', on_delete=models.CASCADE, null=True)
+    probability = models.FloatField()
+
+
+class MushroomPlace(models.Model):
     date = models.DateTimeField()
-    location = models.PointField()
-    image = models.ImageField(upload_to='images/', default='media/not_found.png')
+    longitude = models.FloatField(default=0.0)
+    latitude = models.FloatField(default=0.0)
+    image = models.TextField(default='')
 
     class Meta:
         ordering = ['date']

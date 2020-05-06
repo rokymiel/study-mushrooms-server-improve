@@ -2,6 +2,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.gis.geos import Point
 from django.core.files.base import ContentFile
+from django.http import JsonResponse
+import uuid
+from StudyMushroomsServer.settings import MEDIA_ROOT, MEDIA_URL
 from rest_framework import permissions
 from rest_framework import status
 from rest_framework.authtoken.models import Token
@@ -10,7 +13,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.mixins import ListModelMixin
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.response import Response
-from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, HTTP_200_OK
+from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, HTTP_200_OK, HTTP_201_CREATED
 from rest_framework.parsers import MultiPartParser
 from django.utils.timezone import now
 from StudyMushroomsServer.logger import base_logger
@@ -18,8 +21,9 @@ from .serializers import *
 from PIL import Image
 import torch
 import torchvision
-from GPSPhoto import gpsphoto
 import base64
+import exifread as ef
+from django.core.files.storage import default_storage
 
 # Create your views here.
 
@@ -205,43 +209,89 @@ class PlaceView(PermissionsMixin, ListModelMixin, GenericAPIView):
         logger.info("Received request to add a mushroom place for the user")
         user = request.user
         place = MushroomPlace()
-        place.location = Point(request.data.get('location'))
         place.date = now()
-        place.image = ContentFile(base64.b64decode(request.data.get('image')))
-        place.mushroom = Mushroom.objects.get(classname=request.data.get('classname'))
+        imageb64 = base64.b64decode(request.data.get('image'))
+        name = str(uuid.uuid4()) + '.jpg'
+        print(name)
+        with open(MEDIA_ROOT + 'images/' + name, 'wb') as f:
+            place.image = MEDIA_URL + 'images/' + name
+            f.write(imageb64)
+            f.close()
+
+        use_location = request.data.get('use_location')
+        s = request.data.get('location')
+        print(s)
+        place.longitude = s['mPosition']['mStorage'][1]
+        place.latitude = s['mPosition']['mStorage'][0]
         place.save()
         user.mushroom_places.add(place)
         user.save()
-        return Response("Place at " + str(place.location) + " successfully added", status.HTTP_200_OK)
+        return Response("Place at " + str(place.longitude) + " " + str(place.latitude) + "successfully added",
+                        status.HTTP_200_OK)
+
+    def _convert_to_degress(self, value):
+
+        d = float(value.values[0].num) / float(value.values[0].den)
+        m = float(value.values[1].num) / float(value.values[1].den)
+        s = float(value.values[2].num) / float(value.values[2].den)
+
+        return d + (m / 60.0) + (s / 3600.0)
+
+    def getGPS(self, name):
+        with open(name, 'rb') as f:
+            tags = ef.process_file(f)
+            latitude = tags.get('GPS GPSLatitude')
+            latitude_ref = tags.get('GPS GPSLatitudeRef')
+            longitude = tags.get('GPS GPSLongitude')
+            longitude_ref = tags.get('GPS GPSLongitudeRef')
+            if latitude:
+                lat_value = self._convert_to_degress(latitude)
+                if latitude_ref.values != 'N':
+                    lat_value = -lat_value
+            else:
+                return {}
+            if longitude:
+                lon_value = self._convert_to_degress(longitude)
+                if longitude_ref.values != 'E':
+                    lon_value = -lon_value
+            else:
+                return {}
+        return {'latitude': lat_value, 'longitude': lon_value}
 
 
-@api_view(["POST"])
-def recognize(request, *args, **kwargs):
-    image = Image.open(base64.b64decode(request.data.get('image')))
-    preprocess = torchvision.transforms.Compose([
-        torchvision.transforms.Resize(256),
-        torchvision.transforms.CenterCrop(224),
-        torchvision.transforms.ToTensor(),
-        torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
-    tensor = preprocess(image)
-    batch = tensor.unsqueeze(0)
+class RecognizeView(ListModelMixin, GenericAPIView):
+    serializer_class = RecognizeSerializer
+    pagination_class = LimitOffsetPagination
 
-    if torch.cuda.is_available():
-        batch = batch.to('cuda')
-        model.to('cuda')
-    with torch.no_grad():
-        output = model(batch)
+    def post(self, request, *args, **kwargs):
+        file = ContentFile(base64.b64decode(request.data.get('image')))
+        image = Image.open(file.open())
+        preprocess = torchvision.transforms.Compose([
+            torchvision.transforms.Resize(256),
+            torchvision.transforms.CenterCrop(224),
+            torchvision.transforms.ToTensor(),
+            torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+        ])
+        tensor = preprocess(image)
+        batch = tensor.unsqueeze(0)
 
-    probs = torch.nn.functional.softmax(output[0], dim=0)
-    res = []
-    mushrooms = Mushroom.objects.all()
-    for i in range(len(classnames)):
-        if probs[i].item().__float__() > 0.01:
-            res.append((probs[i].item().__float__(), mushrooms.get(classname=classnames[i])))
-    res = sorted(res)
-    print(res)
-    return Response(data=res, status=status.HTTP_200_OK)
+        if torch.cuda.is_available():
+            batch = batch.to('cuda')
+            model.to('cuda')
+        with torch.no_grad():
+            output = model(batch)
+
+        probs = torch.nn.functional.softmax(output[0], dim=0)
+        res = []
+        mushrooms = Mushroom.objects.all()
+        for i in range(len(classnames)):
+            if probs[i].item().__float__() > 0.01:
+                res.append(RecognizeModel(probability=probs[i].item().__float__(),
+                                          mushroom=mushrooms.filter(classname=classnames[i])[0]))
+        res = sorted(res, key=lambda x: -x.probability)
+        ser = self.get_serializer(res, many=True)
+        print(ser)
+        return Response(data=ser.data, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -310,21 +360,6 @@ def login(request):
                     status=HTTP_200_OK)
 
 
-@api_view(["POST"])
-def add_place(request):
-    logger.info("Received request to add a mushroom place for the user")
-    user = request.user
-    place = MushroomPlace()
-    place.location = Point(request.data.get('location'))
-    place.date = now()
-    place.image = ContentFile(base64.decodebytes(request.data.get('image')))
-    place.mushroom = Mushroom.objects.get(classname=request.data.get('classname'))
-    place.save()
-    user.mushroom_places.add(place)
-    user.save()
-    return Response("Place at " + str(place.location) + " successfully added", status.HTTP_200_OK)
-
-
 class MushroomView(ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = Mushroom.objects.all()
@@ -355,7 +390,7 @@ class NoteView(ListCreateAPIView):
 
     class Meta:
         model = Note
-        fields = ('content', 'date', 'user')
+        fields = ('content', 'title', 'date', 'user')
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -364,7 +399,7 @@ class NoteView(ListCreateAPIView):
         logger.info("Received request for user's mushroom places")
         user = request.user
 
-        queryset = Note.objects.get(user=user)
+        queryset = Note.objects.all().filter(user=user)
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
@@ -383,4 +418,6 @@ class NoteView(ListCreateAPIView):
         note.user = user
         note.date = date
         note.content = content
+        note.title = request.data.get('title')
         note.save()
+        return Response(status=HTTP_201_CREATED)

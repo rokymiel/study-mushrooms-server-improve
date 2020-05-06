@@ -11,11 +11,17 @@ class MushroomSerializer(serializers.ModelSerializer):
 
 
 class PlaceSerializer(serializers.ModelSerializer):
-    mushroom = MushroomSerializer(many=False, required=False)
-
     class Meta:
         model = MushroomPlace
-        fields = ('pk', 'location', 'mushroom', 'image')
+        fields = ('pk', 'date', 'longitude', 'latitude', 'image')
+
+
+class RecognizeSerializer(serializers.ModelSerializer):
+    mushroom = MushroomSerializer(many=False, required=True)
+
+    class Meta:
+        model = RecognizeModel
+        fields = ('mushroom', 'probability')
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -35,4 +41,4 @@ class UserSerializer(serializers.ModelSerializer):
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ('pk', 'date', 'user', 'content')
+        fields = ('pk', 'date', 'user', 'content', 'title')

@@ -6,7 +6,7 @@ from .models import *
 # Register your models here.
 @admin.register(MushroomPlace)
 class PlaceAdmin(OSMGeoAdmin):
-    list_display = ('mushroom', 'location')
+    list_display = ('longitude', 'latitude', 'date')
 
 
 @admin.register(Mushroom)

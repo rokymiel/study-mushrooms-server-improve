@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +26,7 @@ SECRET_KEY = 'di=w0msq$xeus9h)_rwbt)_nombdz%gwf1z$^1gg6+tdprg-vl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['82.146.49.54', 'studymushrooms.ru', '127.0.0.1']
+ALLOWED_HOSTS = ['82.146.49.54', 'studymushrooms.ru', '127.0.0.1', '192.168.1.223']
 
 
 # Application definition
@@ -107,7 +107,7 @@ DATABASES = {
         'NAME': 'gis',
         'USER': 'user001',
         'PASSWORD': '123456789',
-        'HOST': 'localhost',
+        'HOST': '82.146.49.54',
         'PORT': '5432'
     }
 }
