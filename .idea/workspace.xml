@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f9d28e24-e351-4710-8c53-bdae95ab3c11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/users/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +151,8 @@
       <workItem from="1588378761459" duration="14361000" />
       <workItem from="1588490069661" duration="9892000" />
       <workItem from="1588681361871" duration="14558000" />
-      <workItem from="1588712795323" duration="16802000" />
+      <workItem from="1588712795323" duration="17598000" />
+      <workItem from="1588889017239" duration="18367000" />
     </task>
     <servers />
   </component>
@@ -174,22 +172,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="214" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588289363841" />
-    <state width="1860" height="271" key="GridCell.Tab.0.bottom" timestamp="1588778662854">
+    <state width="1860" height="271" key="GridCell.Tab.0.bottom" timestamp="1588779051066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588778662854" />
-    <state width="1860" height="271" key="GridCell.Tab.0.center" timestamp="1588778662853">
+    <state width="1860" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588779051066" />
+    <state width="1860" height="271" key="GridCell.Tab.0.center" timestamp="1588779051063">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588778662853" />
-    <state width="1860" height="271" key="GridCell.Tab.0.left" timestamp="1588778662852">
+    <state width="1860" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588779051063" />
+    <state width="1860" height="271" key="GridCell.Tab.0.left" timestamp="1588779051061">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588778662852" />
-    <state width="1860" height="271" key="GridCell.Tab.0.right" timestamp="1588778662854">
+    <state width="1860" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588779051061" />
+    <state width="1860" height="271" key="GridCell.Tab.0.right" timestamp="1588779051065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588778662854" />
+    <state width="1860" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588779051065" />
     <state width="1860" height="316" key="GridCell.Tab.1.bottom" timestamp="1588762586654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -210,10 +208,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="307" height="636" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1587475656090" />
-    <state x="323" y="61" key="SettingsEditor" timestamp="1588681718259">
+    <state x="323" y="61" key="SettingsEditor" timestamp="1588916360236">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="323" y="61" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588681718259" />
+    <state x="323" y="61" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588916360236" />
     <state width="960" height="481" key="XDebugger.FullValuePopup" timestamp="1588618252922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -228,12 +226,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/StudyMushroomsServer/users/views.py</url>
-          <line>292</line>
+          <line>257</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/StudyMushroomsServer/users/views.py</url>
-          <line>298</line>
+          <line>263</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -243,12 +241,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/StudyMushroomsServer/users/views.py</url>
-          <line>216</line>
+          <line>212</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/StudyMushroomsServer/users/views.py</url>
-          <line>222</line>
+          <line>216</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

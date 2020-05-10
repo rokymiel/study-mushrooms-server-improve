@@ -24,8 +24,15 @@ class RecognizeSerializer(serializers.ModelSerializer):
         fields = ('mushroom', 'probability')
 
 
+class NoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Note
+        fields = ('pk', 'date', 'user', 'content', 'title')
+
+
 class UserSerializer(serializers.ModelSerializer):
     mushroom_places = PlaceSerializer(many=True, required=False)
+    notes = NoteSerializer(many=True, required=False)
 
     class Meta:
         model = User
@@ -36,9 +43,3 @@ class UserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Email and username must be not empty")
 
         return data
-
-
-class NoteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Note
-        fields = ('pk', 'date', 'user', 'content', 'title')

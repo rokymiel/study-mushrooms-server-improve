@@ -170,10 +170,6 @@ class UserView(ListCreateAPIView):
     serializer_class = UserSerializer
     pagination_class = LimitOffsetPagination
 
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'email', 'mushroom_places', 'notes')
-
 
 class SingleUserView(RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAdminUser]
@@ -217,8 +213,6 @@ class PlaceView(PermissionsMixin, ListModelMixin, GenericAPIView):
             place.image = MEDIA_URL + 'images/' + name
             f.write(imageb64)
             f.close()
-
-        use_location = request.data.get('use_location')
         s = request.data.get('location')
         print(s)
         place.longitude = s['mPosition']['mStorage'][1]
@@ -228,35 +222,6 @@ class PlaceView(PermissionsMixin, ListModelMixin, GenericAPIView):
         user.save()
         return Response("Place at " + str(place.longitude) + " " + str(place.latitude) + "successfully added",
                         status.HTTP_200_OK)
-
-    def _convert_to_degress(self, value):
-
-        d = float(value.values[0].num) / float(value.values[0].den)
-        m = float(value.values[1].num) / float(value.values[1].den)
-        s = float(value.values[2].num) / float(value.values[2].den)
-
-        return d + (m / 60.0) + (s / 3600.0)
-
-    def getGPS(self, name):
-        with open(name, 'rb') as f:
-            tags = ef.process_file(f)
-            latitude = tags.get('GPS GPSLatitude')
-            latitude_ref = tags.get('GPS GPSLatitudeRef')
-            longitude = tags.get('GPS GPSLongitude')
-            longitude_ref = tags.get('GPS GPSLongitudeRef')
-            if latitude:
-                lat_value = self._convert_to_degress(latitude)
-                if latitude_ref.values != 'N':
-                    lat_value = -lat_value
-            else:
-                return {}
-            if longitude:
-                lon_value = self._convert_to_degress(longitude)
-                if longitude_ref.values != 'E':
-                    lon_value = -lon_value
-            else:
-                return {}
-        return {'latitude': lat_value, 'longitude': lon_value}
 
 
 class RecognizeView(ListModelMixin, GenericAPIView):
