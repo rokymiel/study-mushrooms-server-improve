@@ -4,7 +4,7 @@ from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 
 
-class MyUserManager(BaseUserManager):
+class SMUserManager(BaseUserManager):
     def create_user(self, email='', username='', common_name='', password=None):
         if not email or not username or not password:
             raise ValueError('No email/username/password')
@@ -39,7 +39,7 @@ class User(AbstractBaseUser):
     session_key = models.CharField(max_length=200, default="", blank=True, null=True)
     recovery_code = models.PositiveIntegerField(default=0)
     verified_by_code = models.BooleanField(default=False)
-    objects = MyUserManager()
+    objects = SMUserManager()
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'
