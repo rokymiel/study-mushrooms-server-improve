@@ -2,8 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9d28e24-e351-4710-8c53-bdae95ab3c11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/recognition/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/recognition/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0002_user_notes.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0002_user_notes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0003_auto_20200505_2015.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0003_auto_20200505_2015.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0004_auto_20200505_2048.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0004_auto_20200505_2048.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0005_auto_20200506_1406.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0005_auto_20200506_1406.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0006_auto_20220508_1509.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0006_auto_20220508_1509.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0007_note_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0007_note_user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser/managers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +39,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="JupyterTrust" id="789458a7-1fdf-4af5-83a1-8c1cd89d2e41" />
   <component name="ProjectId" id="1abhSydZGaqXPobD4hHrDXJSPh8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -34,7 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Furmach/hw1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/StudyMushroomsServer/users" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -44,12 +68,39 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/StudyMushroomsServer/users" />
+      <recent name="$PROJECT_DIR$/StudyMushroomsServer/users/migrations" />
+      <recent name="$PROJECT_DIR$/StudyMushroomsServer/auth" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/recognition" />
+      <recent name="$PROJECT_DIR$/StudyMushroomsServer/auth" />
       <recent name="$PROJECT_DIR$/StudyMushroomsServer" />
     </key>
   </component>
-  <component name="RunManager" selected="Django Server.StudyMushroomsServer">
+  <component name="RunManager" selected="Python.parser">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="StudyMushroomsServer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="parser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="StudyMushroomsServer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -102,14 +153,14 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="StudyMushroomsServer.settings" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/newenv/bin/python" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="0.0.0.0" />
+      <option name="port" value="5432" />
+      <option name="host" value="127.0.0.1" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
@@ -122,14 +173,17 @@
       <item itemvalue="Django Server.StudyMushroomsServer" />
       <item itemvalue="Python.parser" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.manage" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.parser" />
+        <item itemvalue="Python.manage" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -152,104 +206,16 @@
       <workItem from="1588681361871" duration="14558000" />
       <workItem from="1588712795323" duration="17598000" />
       <workItem from="1588889017239" duration="18367000" />
+      <workItem from="1651774348509" duration="8985000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="584" y="181" key="#Inspections" timestamp="1587669849914">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="584" y="181" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1587669849914" />
-    <state x="413" y="164" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588682961120">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="413" y="164" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588682961120" />
-    <state x="689" y="214" key="FileChooserDialogImpl" timestamp="1588289363841">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="689" y="214" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588289363841" />
-    <state width="1860" height="271" key="GridCell.Tab.0.bottom" timestamp="1588779051066">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588779051066" />
-    <state width="1860" height="271" key="GridCell.Tab.0.center" timestamp="1588779051063">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588779051063" />
-    <state width="1860" height="271" key="GridCell.Tab.0.left" timestamp="1588779051061">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588779051061" />
-    <state width="1860" height="271" key="GridCell.Tab.0.right" timestamp="1588779051065">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588779051065" />
-    <state width="1860" height="316" key="GridCell.Tab.1.bottom" timestamp="1588762586654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="316" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588762586654" />
-    <state width="1860" height="316" key="GridCell.Tab.1.center" timestamp="1588762586654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="316" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588762586654" />
-    <state width="1860" height="316" key="GridCell.Tab.1.left" timestamp="1588762586653">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="316" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588762586653" />
-    <state width="1860" height="316" key="GridCell.Tab.1.right" timestamp="1588762586654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="316" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588762586654" />
-    <state width="307" height="636" key="HiddenNamespacesPopup" timestamp="1587475656090">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="307" height="636" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1587475656090" />
-    <state x="323" y="61" key="SettingsEditor" timestamp="1588916360236">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="323" y="61" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588916360236" />
-    <state width="960" height="481" key="XDebugger.FullValuePopup" timestamp="1588618252922">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="960" height="481" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1588618252922" />
-    <state x="539" y="5" width="840" height="174" key="search.everywhere.popup" timestamp="1587647215381">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="539" y="5" width="840" height="174" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587647215381" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/StudyMushroomsServer/users/views.py</url>
-          <line>257</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/StudyMushroomsServer/users/views.py</url>
-          <line>263</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/parser/parser.py</url>
-          <line>157</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/StudyMushroomsServer/users/views.py</url>
-          <line>212</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/StudyMushroomsServer/users/views.py</url>
-          <line>216</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ddddd" />
+    <option name="LAST_COMMIT_MESSAGE" value="ddddd" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/study_mushrooms_server_improve$parser.coverage" NAME="parser Coverage Results" MODIFIED="1652091182320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parser" />

@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'rest_framework',
     'rest_framework.authtoken',
-    'StudyMushroomsServer.users.apps.UsersConfig'
+    'StudyMushroomsServer.user_auth.apps.UsersAuthConfig',
+    'StudyMushroomsServer.base_api.apps.UsersConfig'
 ]
 
 
@@ -59,6 +60,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser'
     ),
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
@@ -77,7 +79,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'StudyMushroomsServer.urls'
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'user_auth.User'
 
 TEMPLATES = [
     {
@@ -107,7 +109,7 @@ DATABASES = {
         'NAME': 'gis',
         'USER': 'user001',
         'PASSWORD': '123456789',
-        'HOST': '82.146.49.54',
+        'HOST': '127.0.0.1',
         'PORT': '5432'
     }
 }

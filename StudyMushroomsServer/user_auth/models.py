@@ -4,44 +4,7 @@ from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 
 
-# Create your models here.
-class Note(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
-    date = models.DateTimeField()
-    content = models.TextField()
-    title = models.TextField(default='')
-
-    class Meta:
-        ordering = ['date']
-
-
-class Mushroom(models.Model):
-    classname = models.CharField(max_length=100, blank=True, default='')
-    name = models.CharField(max_length=100, blank=True, default='')
-    description = models.TextField()
-    picture_link = models.CharField(max_length=100)
-    type = models.CharField(max_length=10, default='')
-
-    class Meta:
-        ordering = ['id']
-
-
-class RecognizeModel(models.Model):
-    mushroom = models.ForeignKey('Mushroom', on_delete=models.CASCADE, null=True)
-    probability = models.FloatField()
-
-
-class MushroomPlace(models.Model):
-    date = models.DateTimeField()
-    longitude = models.FloatField(default=0.0)
-    latitude = models.FloatField(default=0.0)
-    image = models.TextField(default='')
-
-    class Meta:
-        ordering = ['date']
-
-
-class MyUserManager(BaseUserManager):
+class SMUserManager(BaseUserManager):
     def create_user(self, email='', username='', common_name='', password=None):
         if not email or not username or not password:
             raise ValueError('No email/username/password')
@@ -72,13 +35,11 @@ class MyUserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     username = models.CharField(max_length=30, default="", unique=True)
-    notes = models.ManyToManyField(Note, blank=True, default=list, related_name='+')
     email = models.EmailField(unique=True)
-    mushroom_places = models.ManyToManyField(MushroomPlace, blank=True, default=list)
     session_key = models.CharField(max_length=200, default="", blank=True, null=True)
     recovery_code = models.PositiveIntegerField(default=0)
     verified_by_code = models.BooleanField(default=False)
-    objects = MyUserManager()
+    objects = SMUserManager()
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'

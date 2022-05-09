@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class UsersConfig(AppConfig):
-    name = 'StudyMushroomsServer.users'
+    name = 'StudyMushroomsServer.base_api'
