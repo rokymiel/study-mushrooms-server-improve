@@ -1,12 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-import os
-import django
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "StudyMushroomsServer.settings")
-django.setup()
 
-from StudyMushroomsServer.users.models import Mushroom
+from parser.managers import MushroomsManager
 
 base_urls = [('https://wikigrib.ru/vidy/sedobnye-griby/', 'edible'),
              ('https://wikigrib.ru/vidy/uslovno-sedobnye/', 'halfedible'),
@@ -139,19 +135,6 @@ classnames = ['Clavulinopsis helvola', 'Agaricus sylvaticus', 'Lactarius glycios
               'Pluteus phlebophorus', 'Agaricus essettei']
 
 
-def reset_mushrooms():
-    Mushroom.objects.all().delete()
-
-
-def save_new_mushroom(name, classname, picture_link, description, type):
-    model = Mushroom()
-    model.name = name
-    model.classname = classname
-    model.picture_link = picture_link
-    model.description = description
-    model.type = type
-    model.save()
-
 def read_name_and_classname(article):
     try:
         name = article.find('h2').string
@@ -207,8 +190,8 @@ def read_links(url, page_num):
             mushroom_list.findAll('section', {'class': re.compile('post post*')})))
 
 
-def load_mushrooms(base_urls, classnames):
-    reset_mushrooms()
+def load_mushrooms(base_urls, classnames, m_manager):
+    m_manager.reset_mushrooms()
 
     error_links = []
     for url, type in base_urls:
@@ -230,13 +213,11 @@ def load_mushrooms(base_urls, classnames):
                     picture_link = read_picture_link(article, soup)
                     description = read_description(article)
 
-                    save_new_mushroom(name, classname, picture_link, description, type)
+                    m_manager.save_new_mushroom(name, classname, picture_link, description, type)
                 except Exception:
                     print('exc caught')
                     error_links.append(item)
 
 
-load_mushrooms(base_urls, classnames)
-
-# print(error_links)
-# print(classnames)
+if __name__ == "__main__":
+    load_mushrooms(base_urls, classnames, MushroomsManager())
