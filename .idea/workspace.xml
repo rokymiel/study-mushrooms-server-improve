@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9d28e24-e351-4710-8c53-bdae95ab3c11" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0002_user_notes.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0002_user_notes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0003_auto_20200505_2015.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0003_auto_20200505_2015.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0004_auto_20200505_2048.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0004_auto_20200505_2048.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0005_auto_20200506_1406.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0005_auto_20200506_1406.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0006_auto_20220508_1509.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0006_auto_20220508_1509.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/0007_note_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/0007_note_user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser/managers.py" afterDir="false" />
-    </list>
+    <list default="true" id="f9d28e24-e351-4710-8c53-bdae95ab3c11" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +59,7 @@
       <recent name="$PROJECT_DIR$/StudyMushroomsServer" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.parser">
+  <component name="RunManager" selected="Django Server.StudyMushroomsServer">
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="StudyMushroomsServer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -159,7 +140,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="5432" />
+      <option name="port" value="8000" />
       <option name="host" value="127.0.0.1" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
@@ -207,6 +188,7 @@
       <workItem from="1588712795323" duration="17598000" />
       <workItem from="1588889017239" duration="18367000" />
       <workItem from="1651774348509" duration="8985000" />
+      <workItem from="1652124268480" duration="69000" />
     </task>
     <servers />
   </component>
