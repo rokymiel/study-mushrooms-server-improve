@@ -3,7 +3,7 @@ import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "StudyMushroomsServer.settings")
 django.setup()
 
-from StudyMushroomsServer.users.models import Mushroom
+from StudyMushroomsServer.base_api.models import Mushroom
 
 class MushroomsManager:
     def reset_mushrooms(self):
