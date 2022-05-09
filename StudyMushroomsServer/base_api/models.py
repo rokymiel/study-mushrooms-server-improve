@@ -1,6 +1,5 @@
 from django.contrib.gis.db import models
-
-from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 
 
@@ -24,11 +23,6 @@ class Mushroom(models.Model):
 
     class Meta:
         ordering = ['id']
-
-
-class RecognizeModel(models.Model):
-    mushroom = models.ForeignKey('Mushroom', on_delete=models.CASCADE, null=True)
-    probability = models.FloatField()
 
 
 class MushroomPlace(models.Model):

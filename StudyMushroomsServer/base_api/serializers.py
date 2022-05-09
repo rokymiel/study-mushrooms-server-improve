@@ -1,6 +1,4 @@
 from rest_framework import serializers
-from rest_framework.fields import empty
-
 from .models import *
 
 
@@ -14,14 +12,6 @@ class PlaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = MushroomPlace
         fields = ('pk', 'date', 'longitude', 'latitude', 'image')
-
-
-class RecognizeSerializer(serializers.ModelSerializer):
-    mushroom = MushroomSerializer(many=False, required=True)
-
-    class Meta:
-        model = RecognizeModel
-        fields = ('mushroom', 'probability')
 
 
 class NoteSerializer(serializers.ModelSerializer):

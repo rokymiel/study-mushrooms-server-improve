@@ -1,8 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from .views import *
 
 from StudyMushroomsServer.user_auth.requests import login, create_auth
+from ..recognition.views import RecognizeView
 
 urlpatterns = [
     path('login', login),

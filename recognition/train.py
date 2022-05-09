@@ -9,7 +9,7 @@ import time
 import copy
 from torchvision import transforms, models
 
-train_dir = 'train'
+train_dir = ''
 val_dir = 'val'
 data_root = 'input/'
 

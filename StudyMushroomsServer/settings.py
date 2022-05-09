@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'StudyMushroomsServer.user_auth.apps.UsersAuthConfig',
-    'StudyMushroomsServer.base_api.apps.BaseApiConfig'
+    'StudyMushroomsServer.base_api.apps.BaseApiConfig',
+    'StudyMushroomsServer.recognition.apps.RecognitionConfig'
 ]
 
 
