@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9d28e24-e351-4710-8c53-bdae95ab3c11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/StudyMushroomsServer/recognition/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StudyMushroomsServer/recognition/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StudyMushroomsServer/recognition/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StudyMushroomsServer/recognition/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StudyMushroomsServer/recognition/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recognition/validate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/base_api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/base_api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/base_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/base_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser/parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recognition/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/recognition/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/recognition/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/recognition/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser/parse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recognition/validate.py" beforeDir="false" afterPath="$PROJECT_DIR$/recognition/validate.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +91,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="parser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="parse" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="StudyMushroomsServer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -116,7 +104,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/parser/parser.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/parser/parse.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -210,6 +198,7 @@
       <workItem from="1588889017239" duration="18367000" />
       <workItem from="1651774348509" duration="8985000" />
       <workItem from="1652124268480" duration="468000" />
+      <workItem from="1652476297636" duration="1316000" />
     </task>
     <servers />
   </component>
@@ -221,7 +210,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="ddddd" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/study_mushrooms_server_improve$parser.coverage" NAME="parser Coverage Results" MODIFIED="1652091182320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parser" />
+    <SUITE FILE_PATH="coverage/study_mushrooms_server_improve$parser.coverage" NAME="parse Coverage Results" MODIFIED="1652477337711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parser" />
     <SUITE FILE_PATH="coverage/StudyMushroomsServer$test.coverage" NAME="test Coverage Results" MODIFIED="1588488069183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parser" />
     <SUITE FILE_PATH="coverage/study_mushrooms_server_improve$manage.coverage" NAME="manage Coverage Results" MODIFIED="1651776370761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/StudyMushroomsServer$parser.coverage" NAME="parser Coverage Results" MODIFIED="1588619081625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parser" />
