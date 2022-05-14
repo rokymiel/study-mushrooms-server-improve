@@ -355,7 +355,7 @@ class NoteView(ListCreateAPIView):
 
     class Meta:
         model = Note
-        fields = ('content', 'title', 'date', 'user')
+        fields = ('id', 'content', 'title', 'date', 'user')
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -372,17 +372,45 @@ class NoteView(ListCreateAPIView):
 
         serializer = self.get_serializer(queryset, many=True)
         logger.info("Responding normally")
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
         logger.info('Received request to add a note')
-        user = request.user
-        content = request.data.get('content')
-        date = now()
-        note = Note()
-        note.user = user
-        note.date = date
-        note.content = content
-        note.title = request.data.get('title')
-        note.save()
-        return Response(status=HTTP_201_CREATED)
+
+        data = {
+            'date': now(),
+            'content': request.data.get('content'),
+            'title': request.data.get('title'),
+            'user': request.user
+        }
+
+        serializer = self.get_serializer(data=data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data,
+                            status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, *args, **kwargs):
+        Note.objects.all().filter(pk=pk).delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request, pk, *args, **kwargs):
+        update_instance = Note.objects.get(pk=pk)
+
+        # допустим, датой заметки будет дата ее последнего изменения
+        data = {
+            'date': now(),
+            'content': request.data.get('content'),
+            'title': request.data.get('title'),
+            'user': request.user
+        }
+
+        serializer = self.get_serializer(instance=update_instance, data=data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
