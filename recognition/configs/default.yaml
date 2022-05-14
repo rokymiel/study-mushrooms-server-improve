@@ -1,0 +1,68 @@
+hydra:
+  run:
+    dir: /home/artermiloff/PycharmProjects/study-mushrooms-server-improve/recognition/${general.exp_name}
+
+general:
+  exp_name: DEFAULT
+  epochs: 500
+  num_workers: 8
+  train_batch_size: 32
+  val_batch_size: 32
+  device: cuda
+  seed: 0
+
+data:
+  train:
+    dir: /path/to/train/root/dir
+    transforms:
+      _target_: torchvision.transforms.Compose
+      transforms:
+        - _target_: torchvision.transforms.RandomResizedCrop
+          size: 224
+          scale: [ 0.4, 1 ]
+        - _target_: torchvision.transforms.RandomAffine
+          degrees: 60
+          translate: [ 0, 0.5 ]
+        - _target_: torchvision.transforms.RandomHorizontalFlip
+        - _target_: torchvision.transforms.ToTensor
+        - _target_: torchvision.transforms.Normalize
+          mean: [ 0.485, 0.456, 0.406 ]
+          std: [ 0.229, 0.224, 0.225 ]
+
+  val:
+    dir: /path/to/val/root/dir
+    transforms:
+      _target_: torchvision.transforms.Compose
+      transforms:
+        - _target_: torchvision.transforms.Resize
+          size: [ 224, 224 ]
+        - _target_: torchvision.transforms.ToTensor
+        - _target_: torchvision.transforms.Normalize
+          mean: [ 0.485, 0.456, 0.406 ]
+          std: [ 0.229, 0.224, 0.225 ]
+
+model:
+  net:
+    _target_: torchvision.models.resnet50
+    pretrained: False
+    num_classes: 520
+
+optimizer:
+  type: torch.optim.Adam
+  params:
+    lr: 3e-4
+    betas: [ 0.5, 0.999 ]
+
+scheduler:
+  type: torch.optim.lr_scheduler.ExponentialLR
+  gamma: 0.95
+
+loss:
+  _target_: torch.nn.CrossEntropyLoss
+
+logging:
+  log: True
+  save_jit: True
+  save_frequency: 5
+  save_last: True
+  save_best: True

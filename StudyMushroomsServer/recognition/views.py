@@ -1,17 +1,16 @@
+import base64
+
+from PIL import Image
 from django.core.files.base import ContentFile
 from rest_framework import status, permissions
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.response import Response
+
 from StudyMushroomsServer.logger import base_logger
-from common.constants import classnames
-from recognition.validate import mushrooms_recognition_model, current_device, predict_probs, recognize
+from recognition.inference import recognize
 from .serializers import *
-from PIL import Image
-import torch
-import torchvision
-import base64
 from ..base_api.models import Mushroom
 
 logger = base_logger.getChild('recognition')
@@ -27,6 +26,7 @@ class RecognizeView(ListModelMixin, GenericAPIView):
         image = Image.open(file.open())
 
         mushrooms = Mushroom.objects.all()
+
         def create_model(probability, classname):
             return RecognizeModel(probability=probability,
                                   mushroom=mushrooms.filter(classname=classname)[0])
