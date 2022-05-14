@@ -1,4 +1,7 @@
 import uuid
+
+from django.contrib.auth.models import PermissionsMixin
+
 from StudyMushroomsServer.settings import MEDIA_ROOT, MEDIA_URL
 from rest_framework import permissions
 from rest_framework import status
@@ -16,14 +19,7 @@ import base64
 from StudyMushroomsServer.user_auth.models import User
 from StudyMushroomsServer.user_auth.serializers import UserSerializer
 
-logger = base_logger.getChild('users')
-
-
-class UserView(ListCreateAPIView):
-    permission_classes = [permissions.IsAdminUser]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    pagination_class = LimitOffsetPagination
+logger = base_logger.getChild('base_api')
 
 
 class PlaceView(PermissionsMixin, ListModelMixin, GenericAPIView):

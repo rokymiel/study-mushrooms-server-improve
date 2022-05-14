@@ -1,10 +1,12 @@
-import common.constants
+import torch
+import torchvision
+
 from common.constants import classnames
 
 mushrooms_recognition_model = torchvision.models.resnet50()
 mushrooms_recognition_model.fc = torch.nn.Linear(mushrooms_recognition_model.fc.in_features, len(classnames))
 current_device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-mushrooms_recognition_model.load_state_dict(torch.load('../nn', map_location=current_device))
+mushrooms_recognition_model.load_state_dict(torch.load('nn', map_location=current_device))
 mushrooms_recognition_model.eval()
 
 

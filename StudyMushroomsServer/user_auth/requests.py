@@ -1,31 +1,24 @@
 from django.contrib.auth import authenticate
-from django.contrib.auth.decorators import login_required
-from django.contrib.gis.geos import Point
-from django.core.files.base import ContentFile
-from django.http import JsonResponse
-import uuid
-from StudyMushroomsServer.settings import MEDIA_ROOT, MEDIA_URL
 from rest_framework import permissions
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, GenericAPIView
-from rest_framework.mixins import ListModelMixin
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.response import Response
-from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, HTTP_200_OK, HTTP_201_CREATED
-from rest_framework.parsers import MultiPartParser
-from django.utils.timezone import now
+from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, HTTP_200_OK
 from StudyMushroomsServer.logger import base_logger
 from .serializers import *
-from PIL import Image
-import torch
-import torchvision
-import base64
-import exifread as ef
-from django.core.files.storage import default_storage
 
 logger = base_logger.getChild('auth')
+
+
+class UserView(ListCreateAPIView):
+    permission_classes = [permissions.IsAdminUser]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    pagination_class = LimitOffsetPagination
+
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])

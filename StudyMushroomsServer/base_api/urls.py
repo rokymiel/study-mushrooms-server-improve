@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import *
 
-from StudyMushroomsServer.user_auth.requests import login, create_auth
+from StudyMushroomsServer.user_auth.requests import login, create_auth, UserView
 
 urlpatterns = [
     path('login', login),
