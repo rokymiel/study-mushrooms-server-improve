@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9d28e24-e351-4710-8c53-bdae95ab3c11" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/StudyMushroomsServer/configs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/StudyMushroomsServer/configs/configs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server_configs/settings.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/base_api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/base_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/base_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/user_auth/requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/user_auth/requests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/user_auth/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/user_auth/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recognition/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/recognition/inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,11 +65,11 @@
       <recent name="$PROJECT_DIR$/StudyMushroomsServer/auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/common" />
       <recent name="$PROJECT_DIR$/recognition" />
       <recent name="$PROJECT_DIR$/StudyMushroomsServer/recognition" />
       <recent name="$PROJECT_DIR$/recognition/train" />
-      <recent name="$PROJECT_DIR$/StudyMushroomsServer/auth" />
     </key>
   </component>
   <component name="RunManager" selected="Django Server.StudyMushroomsServer">
@@ -208,6 +208,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ddddd" />
