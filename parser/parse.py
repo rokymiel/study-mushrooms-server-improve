@@ -1,13 +1,13 @@
+import hydra as hydra
 from bs4 import BeautifulSoup
 import requests
 import re
 
+from omegaconf import DictConfig
+
 from common.constants import classnames
 from parser.managers import MushroomsManager
 
-base_urls = [('https://wikigrib.ru/vidy/sedobnye-griby/', 'edible'),
-             ('https://wikigrib.ru/vidy/uslovno-sedobnye/', 'halfedible'),
-             ('https://wikigrib.ru/vidy/nesedobnye-griby/', 'inedible')]
 
 def read_name_and_classname(article):
     try:
@@ -93,5 +93,12 @@ def load_mushrooms(base_urls, classnames, m_manager):
                     error_links.append(item)
 
 
-if __name__ == "__main__":
+@hydra.main(config_path="configs", config_name="parse")
+def main(cfg: DictConfig) -> None:
+    base_urls = cfg.base_urls
+
     load_mushrooms(base_urls, classnames, MushroomsManager())
+
+
+if __name__ == "__main__":
+    main()

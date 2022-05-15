@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+
+import common.runtime
 from StudyMushroomsServer.configs.configs import settings_config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = common.runtime.BASE_DIR
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = settings_config.media_url
 
@@ -26,7 +28,7 @@ SECRET_KEY = settings_config.secret_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['82.146.49.54', 'studymushrooms.ru', '127.0.0.1', '192.168.1.223']
+ALLOWED_HOSTS = settings_config.allowed_hosts
 
 
 # Application definition
