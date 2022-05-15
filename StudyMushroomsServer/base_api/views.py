@@ -120,8 +120,6 @@ class NoteView(ListCreateAPIView):
     def post(self, request, *args, **kwargs):
         logger.info('Received request to add a note')
 
-        # print(Note(request).pk)
-
         data = {
             'date': now(),
             'content': request.data.get('content'),
@@ -142,7 +140,6 @@ class NoteView(ListCreateAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def put(self, request, pk, *args, **kwargs):
-        print('asda')
         update_instance = Note.objects.get(pk=pk)
 
         # допустим, датой заметки будет дата ее последнего изменения
