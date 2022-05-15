@@ -1,3 +1,5 @@
+import re
+
 from django.contrib.auth import authenticate
 from rest_framework import permissions
 from rest_framework import status
@@ -27,11 +29,23 @@ def create_auth(request):
     serialized = UserSerializer(data=request.data)
 
     username = request.data.get('username')
+    username_r = r"^[A-Za-z0-9]{6,}$"
+    email_r = r"^([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+$"
+
+    if not re.match(username_r, username):
+        return Response({"error": "Invalid username"},
+                        status=status.HTTP_400_BAD_REQUEST)
+
     if User.objects.all().filter(username=username).exists():
         return Response({"error": "Duplicate username"},
                         status=status.HTTP_400_BAD_REQUEST)
 
     mail = request.data.get('email')
+
+    if not re.match(email_r, mail):
+        return Response({"error": "Invalid email"},
+                        status=status.HTTP_400_BAD_REQUEST)
+
     if User.objects.all().filter(email=mail).exists():
         return Response({"error": "Duplicate email"},
                         status=status.HTTP_400_BAD_REQUEST)
@@ -68,10 +82,21 @@ def login(request):
     username = request.data.get("username")
     password = request.data.get("password")
 
+    username_r = r"^[A-Za-z0-9]{6,}$"
+    password_r = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+
     if username is None or password is None:
         logger.error("No username or password. Responding with 400")
         return Response({'error': 'No username or password'},
                         status=HTTP_400_BAD_REQUEST)
+
+    if not re.match(username_r, username):
+        return Response({"error": "Invalid username"},
+                        status=status.HTTP_400_BAD_REQUEST)
+
+    if not re.match(password_r, password):
+        return Response({"error": "Invalid password"},
+                        status=status.HTTP_400_BAD_REQUEST)
 
     user = authenticate(username=username, password=password)
 
