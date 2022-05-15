@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9d28e24-e351-4710-8c53-bdae95ab3c11" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/StudyMushroomsServer/configs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StudyMushroomsServer/configs/configs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_configs/settings.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/StudyMushroomsServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/StudyMushroomsServer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/base_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/base_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/base_api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyMushroomsServer/user_auth/requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudyMushroomsServer/user_auth/requests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +43,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/StudyMushroomsServer/recognition" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/StudyMushroomsServer" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -72,7 +70,19 @@
       <recent name="$PROJECT_DIR$/recognition/train" />
     </key>
   </component>
-  <component name="RunManager" selected="Django Server.StudyMushroomsServer">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.parse">
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="StudyMushroomsServer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,7 +174,6 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Django Server.StudyMushroomsServer" />
       <item itemvalue="Python.parse" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.manage" />
@@ -176,7 +185,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -208,9 +217,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ddddd" />
