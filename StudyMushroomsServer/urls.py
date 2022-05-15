@@ -19,7 +19,8 @@ from django.urls import path, include
 from StudyMushroomsServer import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('StudyMushroomsServer.users.urls'))
+    path('api/', include('StudyMushroomsServer.base_api.urls')),
+    path('api/', include('StudyMushroomsServer.recognition.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

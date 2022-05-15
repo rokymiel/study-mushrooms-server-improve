@@ -12,21 +12,23 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import common.runtime
+from StudyMushroomsServer.configs.configs import settings_config
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = common.runtime.BASE_DIR
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-MEDIA_URL = '/media/'
+MEDIA_URL = settings_config.media_url
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'di=w0msq$xeus9h)_rwbt)_nombdz%gwf1z$^1gg6+tdprg-vl'
+SECRET_KEY = settings_config.secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['82.146.49.54', 'studymushrooms.ru', '127.0.0.1', '192.168.1.223']
+ALLOWED_HOSTS = settings_config.allowed_hosts
 
 
 # Application definition
@@ -41,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'rest_framework',
     'rest_framework.authtoken',
-    'StudyMushroomsServer.users.apps.UsersConfig'
+    'StudyMushroomsServer.user_auth.apps.UsersAuthConfig',
+    'StudyMushroomsServer.base_api.apps.BaseApiConfig',
+    'StudyMushroomsServer.recognition.apps.RecognitionConfig'
 ]
 
 
@@ -59,6 +63,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser'
     ),
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
@@ -77,7 +82,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'StudyMushroomsServer.urls'
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'user_auth.User'
 
 TEMPLATES = [
     {
@@ -101,16 +106,7 @@ WSGI_APPLICATION = 'StudyMushroomsServer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'gis',
-        'USER': 'user001',
-        'PASSWORD': '123456789',
-        'HOST': '82.146.49.54',
-        'PORT': '5432'
-    }
-}
+DATABASES = settings_config.databases
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -146,4 +142,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = settings_config.static_url

@@ -1,0 +1,3 @@
+base_urls: [['https://wikigrib.ru/vidy/sedobnye-griby/', 'edible'],
+            ['https://wikigrib.ru/vidy/uslovno-sedobnye/', 'halfedible'],
+            ['https://wikigrib.ru/vidy/nesedobnye-griby/', 'inedible']]

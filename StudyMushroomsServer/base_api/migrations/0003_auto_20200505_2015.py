@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('auth', '0011_update_proxy_permissions'),
-        ('users', '0002_user_notes'),
+        ('base_api', '0002_user_notes'),
     ]
 
     operations = [
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('probability', models.FloatField()),
-                ('mushroom', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='users.Mushroom')),
+                ('mushroom', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='base_api.Mushroom')),
             ],
         ),
         migrations.CreateModel(

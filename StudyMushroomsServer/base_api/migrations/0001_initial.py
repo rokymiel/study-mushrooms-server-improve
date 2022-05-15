@@ -64,7 +64,7 @@ class Migration(migrations.Migration):
                 ('date', models.DateTimeField()),
                 ('location', django.contrib.gis.db.models.fields.PointField(srid=4326)),
                 ('image', models.ImageField(default='media/not_found.png', upload_to='images/')),
-                ('mushroom', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='users.Mushroom')),
+                ('mushroom', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='base_api.Mushroom')),
             ],
             options={
                 'ordering': ['date'],
@@ -73,6 +73,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='mushroom_places',
-            field=models.ManyToManyField(blank=True, default=list, to='users.MushroomPlace'),
+            field=models.ManyToManyField(blank=True, default=list, to='base_api.MushroomPlace'),
         ),
     ]
