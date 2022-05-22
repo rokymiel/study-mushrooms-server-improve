@@ -3,11 +3,18 @@ import torchvision
 
 from common.constants import classnames
 
-mushrooms_recognition_model = torchvision.models.resnet50()
-mushrooms_recognition_model.fc = torch.nn.Linear(mushrooms_recognition_model.fc.in_features, len(classnames))
-current_device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-mushrooms_recognition_model.load_state_dict(torch.load('nn', map_location=current_device))
-mushrooms_recognition_model.eval()
+use_jit = False
+
+if use_jit:
+    # Specify path to JIT model below
+    mushrooms_recognition_model = torch.jit.load(...)
+else:
+    mushrooms_recognition_model = torchvision.models.resnet50()
+    mushrooms_recognition_model.fc = torch.nn.Linear(mushrooms_recognition_model.fc.in_features, len(classnames))
+    device_used = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    mushrooms_recognition_model.to(device_used)
+    mushrooms_recognition_model.load_state_dict(torch.load('../nn', map_location=device_used))
+    mushrooms_recognition_model.eval()
 
 
 def predict_probs(image):
@@ -20,8 +27,8 @@ def predict_probs(image):
     tensor = preprocess(image)
     batch = tensor.unsqueeze(0)
 
-    batch = batch.to(current_device)
-    mushrooms_recognition_model.to(current_device)
+    batch = batch.to(device_used)
+    mushrooms_recognition_model.to(device_used)
     with torch.no_grad():
         output = mushrooms_recognition_model(batch)
 
