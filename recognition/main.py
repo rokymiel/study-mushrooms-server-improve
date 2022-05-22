@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from torchvision.datasets import ImageFolder
 
-from recognition.train import train_model
+from train import train_model
 
 
 def get_train_val_loaders(cfg: DictConfig) -> (DataLoader, DataLoader):

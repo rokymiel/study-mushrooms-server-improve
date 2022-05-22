@@ -1,9 +1,9 @@
 hydra:
   run:
-    dir: /home/artermiloff/PycharmProjects/study-mushrooms-server-improve/recognition/${general.exp_name}
+    dir: /your/path/${general.exp_name}
 
 general:
-  exp_name: DEFAULT
+  exp_name: BASELINE_EXPERIMENT
   epochs: 500
   num_workers: 8
   train_batch_size: 32
@@ -45,7 +45,7 @@ model:
   net:
     _target_: torchvision.models.resnet50
     pretrained: False
-    num_classes: 520
+    num_classes: 522
 
 optimizer:
   type: torch.optim.Adam
@@ -54,8 +54,9 @@ optimizer:
     betas: [ 0.5, 0.999 ]
 
 scheduler:
-  type: torch.optim.lr_scheduler.ExponentialLR
-  gamma: 0.95
+  type: torch.optim.lr_scheduler.StepLR
+  step_size: 7
+  gamma: 0.1
 
 loss:
   _target_: torch.nn.CrossEntropyLoss

@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
-from recognition.validate import validate_model
+from validate import validate_model
 
 
 def train_model(epochs: int,
@@ -26,7 +26,7 @@ def train_model(epochs: int,
                 ) -> None:
     assert epochs > 0, "epochs must be positive integer."
 
-    train_step = val_step = 0
+    train_step = 0
     best_loss = float("inf")
     for epoch in range(epochs):
         running_train_loss = 0
@@ -54,7 +54,7 @@ def train_model(epochs: int,
             if writer is not None:
                 writer.add_scalar("Train/Step Wise Loss", loss, train_step)
                 writer.add_scalar("Train/Step Wise Accuracy",
-                                  (np.array(class_preds) == np.array(y.tolist())).mean(), val_step)
+                                  (np.array(class_preds) == np.array(y.tolist())).mean(), train_step)
             if scheduler is not None:
                 scheduler.step()
             train_step += 1
@@ -62,15 +62,10 @@ def train_model(epochs: int,
         if writer is not None:
             # Train stats
             writer.add_scalar("Train/Epoch Wise Loss", running_train_loss / len(train_loader.dataset), epoch)
-            writer.add_scalar("Train/Epoch Wise Top 1 Accuracy",
-                              top_k_accuracy_score(running_train_y, running_train_raw, k=1,
-                                                   labels=np.arange(num_classes)), epoch)
-            writer.add_scalar("Train/Epoch Wise Top 3 Accuracy",
-                              top_k_accuracy_score(running_train_y, running_train_raw, k=3,
-                                                   labels=np.arange(num_classes)), epoch)
-            writer.add_scalar("Train/Epoch Wise Top 5 Accuracy",
-                              top_k_accuracy_score(running_train_y, running_train_raw, k=5,
-                                                   labels=np.arange(num_classes)), epoch)
+            for k in [1, 3, 5]:
+                writer.add_scalar(f"Train/Epoch Wise Top {k} Accuracy",
+                                  top_k_accuracy_score(running_train_y, running_train_raw, k=k,
+                                                       labels=np.arange(num_classes)), epoch)
             writer.add_scalar("Train/Epoch Wise F1-Score", f1_score(running_train_y, running_train_preds,
                                                                     average="macro"), epoch)
 
@@ -81,7 +76,7 @@ def train_model(epochs: int,
         val_loss = running_val_loss / len(val_loader.dataset)
         torch.save(model.state_dict(), f"checkpoints/model_ep{epoch:04}_valloss{val_loss:.03f}.pth")
         if save_jit:
-            scripted_model = torch.jit.script(model)
+            scripted_model = torch.jit.script(model.cuda())
             scripted_model.save(f"checkpoints/gpu-model_ep{epoch:04}_valloss{val_loss:.03f}.jit")
             scripted_model = torch.jit.script(model.cpu())
             scripted_model.save(f"checkpoints/cpu-model_ep{epoch:04}_valloss{val_loss:.03f}.jit")

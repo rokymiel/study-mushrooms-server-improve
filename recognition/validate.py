@@ -45,27 +45,22 @@ def validate_model(best_loss: float,
                                   (np.array(class_preds) == np.array(y.tolist())).mean(), val_step)
             val_step += 1
 
-    epoch_loss = running_val_loss / len(val_loader.dataset)
+    val_loss = running_val_loss / len(val_loader.dataset)
     if writer is not None:
-        writer.add_scalar("Validation/Epoch Wise Loss", running_val_loss / len(val_loader.dataset), epoch)
-        writer.add_scalar("Validation/Epoch Wise Top 1 Accuracy",
-                          top_k_accuracy_score(running_val_y, running_val_raw, k=1,
-                                               labels=np.arange(num_classes)), epoch)
-        writer.add_scalar("Validation/Epoch Wise Top 3 Accuracy",
-                          top_k_accuracy_score(running_val_y, running_val_raw, k=3,
-                                               labels=np.arange(num_classes)), epoch)
-        writer.add_scalar("Validation/Epoch Wise Top 5 Accuracy",
-                          top_k_accuracy_score(running_val_y, running_val_raw, k=5,
-                                               labels=np.arange(num_classes)), epoch)
+        writer.add_scalar("Validation/Epoch Wise Loss", val_loss, epoch)
+        for k in [1, 3, 5]:
+            writer.add_scalar(f"Validation/Epoch Wise Top {k} Accuracy",
+                              top_k_accuracy_score(running_val_y, running_val_raw, k=k,
+                                                   labels=np.arange(num_classes)), epoch)
         writer.add_scalar("Validation/Epoch Wise F1-Score", f1_score(running_val_y, running_val_preds,
                                                                      average="macro"), epoch)
-    val_loss = running_val_loss / len(val_loader.dataset)
+
     if save_frequency is not None and (epoch + 1) % save_frequency == 0 or \
             save_best and val_loss < best_loss:
         best_loss = val_loss
         torch.save(model.state_dict(), f"checkpoints/model_ep{epoch:04}_valloss{val_loss:.03f}.pth")
         if save_jit:
-            scripted_model = torch.jit.script(model)
+            scripted_model = torch.jit.script(model.cuda())
             scripted_model.save(f"checkpoints/gpu-model_ep{epoch:04}_valloss{val_loss:.03f}.jit")
             scripted_model = torch.jit.script(model.cpu())
             scripted_model.save(f"checkpoints/cpu-model_ep{epoch:04}_valloss{val_loss:.03f}.jit")
